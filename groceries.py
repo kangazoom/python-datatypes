@@ -53,36 +53,36 @@ listy = set(listy)
 print("\n\n--------------\nTHERE ARE {0} DEPARTMENTS:\n--------------".format(len(listy)))
 
 
-# sort departments in alphabetical order
-listy_alpha = sorted(listy)
-
-# add all the department values, including repeats, to a list
-# listy_alpha has unique department names, arranged alphabetically
-dept_repeats = []
-for department in listy_alpha:
-  for key in products:
-    if key["department"] == department:
-      dept_repeats.append(key["department"])
-
-# create a dictionary with alphabetically listed departments (unique) as keys
-dict_counter = {}.fromkeys(listy_alpha)
-
-# make all values 0 since I need to use it as a counter later on
-for key in dict_counter:
-  dict_counter[key] = 0
-
-# whenever the dictionary key matches with the department names in the list of all department mentions, increase related dictionary value by 1
-# Note: Maybe I didn't need to create dept_repeats and could have just worked with the values from the original products hash
-for key in dict_counter:
-  for dept in dept_repeats:
-    if key == dept:
-      dict_counter[key] += 1
-
-
-
-# Format results as indicated in assignment and vary grammar depending on number of products
-for key in dict_counter:
-  if dict_counter[key] <= 1:
-    print("+ {0} ({1} product)".format(key.title(), dict_counter[key]))
-  else:
-     print("+ {0} ({1} products)".format(key.title(), dict_counter[key]))
+# # sort departments in alphabetical order
+# listy_alpha = sorted(listy)
+#
+# # add all the department values, including repeats, to a list
+# # listy_alpha has unique department names, arranged alphabetically
+# dept_repeats = []
+# for department in listy_alpha:
+#   for key in products:
+#     if key["department"] == department:
+#       dept_repeats.append(key["department"])
+#
+# # create a dictionary with alphabetically listed departments (unique) as keys
+# dict_counter = {}.fromkeys(listy_alpha)
+#
+# # make all values 0 since I need to use it as a counter later on
+# for key in dict_counter:
+#   dict_counter[key] = 0
+#
+# # whenever the dictionary key matches with the department names in the list of all department mentions, increase related dictionary value by 1
+# # Note: Maybe I didn't need to create dept_repeats and could have just worked with the values from the original products hash
+# for key in dict_counter:
+#   for dept in dept_repeats:
+#     if key == dept:
+#       dict_counter[key] += 1
+#
+#
+#
+# # Format results as indicated in assignment and vary grammar depending on number of products
+# for key in dict_counter:
+#   if dict_counter[key] <= 1:
+#     print("+ {0} ({1} product)".format(key.title(), dict_counter[key]))
+#   else:
+#      print("+ {0} ({1} products)".format(key.title(), dict_counter[key]))
